@@ -12,6 +12,10 @@ class Notes{
     deleteNote(value){
         return orm.delete("note", "id", value)
     }
+
+    // updateNote(value) {
+    //     return orm.update("note", "id", value)
+    //   }
 }
 
 module.exports = new Notes()

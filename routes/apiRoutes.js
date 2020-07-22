@@ -21,4 +21,10 @@ router.delete("/api/notes/:id", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+// router.put("/api/notes/:id", (req, res) => {
+//   Notes.updateNote(req.params.id)
+//   .then((results) => res.json(results))
+//   .catch((err) => res.status(500).json(err));
+// });
+
 module.exports = router;

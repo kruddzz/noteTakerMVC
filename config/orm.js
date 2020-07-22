@@ -35,5 +35,11 @@ class ORM  {
     
         return this.connection.query(queryString, [table, column, value] )
     }
+
+  //   update(table, column, value){
+  //     var queryString = `UPDATE FROM ?? WHERE ?? = ?`;
+  
+  //     return this.connection.query(queryString, [table, column, value] )
+  // }
 };
     module.exports = new ORM(connection);
