@@ -1,26 +1,23 @@
 const router = require("express").Router();
-const note = require("../models/note");
+const Notes = require("../models/note");
 
 // GET "/api/notes" responds with all notes from the database
-router.get("/notes", (req, res) => {
-  note
-    .getNotes()
-    .then((notes) => res.json(notes))
+router.get("/api/notes", (req, res) => {
+  Notes.selectAll()
+    .then((results) => res.json(results))
     .catch((err) => res.status(500).json(err));
 });
 
-router.post("/notes", (req, res) => {
-  note
-    .addNote(req.body)
-    .then((note) => res.json(note))
+router.post("/api/notes", (req, res) => {
+  Notes.createNote([req.body.title, req.body.text])
+    .then((results) => res.json(results))
     .catch((err) => res.status(500).json(err));
 });
 
 // DELETE "/api/notes" deletes the note with an id equal to req.params.id
-router.delete("/notes/:id", (req, res) => {
-  note
-    .removeNote(req.params.id)
-    .then(() => res.json({ ok: true }))
+router.delete("/api/notes/:id", (req, res) => {
+  Notes.deleteNote(req.params.id)
+    .then((results) => res.json(results))
     .catch((err) => res.status(500).json(err));
 });
 

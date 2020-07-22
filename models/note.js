@@ -1,16 +1,16 @@
-const orm = require("../db/orm.js")
+const orm = require("../config/orm")
 
 class Notes{
     selectAll(){
-        return orm.selectAll("notes")
+        return orm.selectAll("note")
     }
 
     createNote(values){
-        return orm.create("notes", ["title", "text"], values)
+        return orm.create("note", ["title", "text"], values)
     }
 
-    deleteNote(id){
-        return orm.delete("notes", "id", id)
+    deleteNote(value){
+        return orm.delete("note", "id", value)
     }
 }
 
